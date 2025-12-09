@@ -1,0 +1,84 @@
+@prefix : <http://example.org/defi#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+:DeFiOntology a owl:Ontology ;
+  rdfs:label "DeFi Protocol Explorer Ontology" ;
+  rdfs:comment "A compact ontology for protocols, blockchains, tokens, organizations and their relationships (designed for GraphRAG QA)." .
+
+### Classes
+:Protocol a owl:Class ; rdfs:label "Protocol" ;
+  rdfs:comment "A DeFi protocol or project (e.g., Uniswap, Aave, Lido)." .
+
+:Blockchain a owl:Class ; rdfs:label "Blockchain" ;
+  rdfs:comment "A blockchain or L2 where protocols deploy." .
+
+:Category a owl:Class ; rdfs:label "Category" ;
+  rdfs:comment "Protocol category/type, e.g., DEX, Lending, LiquidStaking." .
+
+:Token a owl:Class ; rdfs:label "Token" ;
+  rdfs:comment "A cryptocurrency token used / supported by protocols." .
+
+:Organization a owl:Class ; rdfs:label "Organization" ;
+  rdfs:comment "Orgs: audit firms, VCs, teams, foundations." .
+
+:Person a owl:Class ; rdfs:label "Person" ;
+  rdfs:comment "People: founders, maintainers." .
+
+### Datatype properties (attributes)
+:launchDate a owl:DatatypeProperty ; rdfs:domain :Protocol ; rdfs:range xsd:date ;
+  rdfs:comment "Protocol launch date." .
+
+:website a owl:DatatypeProperty ; rdfs:domain :Protocol ; rdfs:range xsd:anyURI ;
+  rdfs:comment "Official website." .
+
+:tvlUSD a owl:DatatypeProperty ; rdfs:domain :Protocol ; rdfs:range xsd:decimal ;
+  rdfs:comment "Current TVL in USD (snapshot)." .
+
+:historicalTVL a owl:DatatypeProperty ; rdfs:domain :Protocol ; rdfs:range xsd:string ;
+  rdfs:comment "Link or serialized time series (for demo we store a JSON string or external reference)." .
+
+:numberOfUsers a owl:DatatypeProperty ; rdfs:domain :Protocol ; rdfs:range xsd:integer ;
+  rdfs:comment "Number of active users (approx)." .
+
+:websiteURL a owl:DatatypeProperty ; rdfs:domain :Protocol ; rdfs:range xsd:anyURI .
+
+### Object properties (relationships)
+:deployedOn a owl:ObjectProperty ; rdfs:domain :Protocol ; rdfs:range :Blockchain ;
+  rdfs:label "DEPLOYED_ON" ; rdfs:comment "Protocol is deployed on blockchain." .
+
+:belongsToCategory a owl:ObjectProperty ; rdfs:domain :Protocol ; rdfs:range :Category ;
+  rdfs:label "BELONGS_TO_CATEGORY" .
+
+:supportsToken a owl:ObjectProperty ; rdfs:domain :Protocol ; rdfs:range :Token ;
+  rdfs:label "SUPPORTS_TOKEN" .
+
+:foundedBy a owl:ObjectProperty ; rdfs:domain :Protocol ; rdfs:range [:Person :Organization] ;
+  rdfs:label "FOUNDED_BY" .
+
+:partnersWith a owl:ObjectProperty ; rdfs:domain :Protocol ; rdfs:range :Organization ;
+  rdfs:label "PARTNERS_WITH" ; rdfs:comment "Partnerships with other protocols or orgs." .
+
+:auditedBy a owl:ObjectProperty ; rdfs:domain :Protocol ; rdfs:range :Organization ;
+  rdfs:label "AUDITED_BY" .
+
+:backedBy a owl:ObjectProperty ; rdfs:domain :Protocol ; rdfs:range :Organization ;
+  rdfs:label "BACKED_BY" ; rdfs:comment "VC/backer relationship." .
+
+:migratedTo a owl:ObjectProperty ; rdfs:domain :Protocol ; rdfs:range :Blockchain ;
+  rdfs:label "MIGRATED_TO" ; rdfs:comment "Protocol migration target chain." .
+
+:hasBridgeTo a owl:ObjectProperty ; rdfs:domain :Protocol ; rdfs:range :Blockchain ;
+  rdfs:label "HAS_BRIDGE_TO" ; rdfs:comment "Bridging relationships to other chains." .
+
+### Example controlled categories (as instances)
+:DEX a :Category ; rdfs:label "DEX" .
+:Lending a :Category ; rdfs:label "Lending" .
+:LiquidStaking a :Category ; rdfs:label "LiquidStaking" .
+
+### Example properties for provenance (helpful for GraphRAG)
+:sourceURL a owl:DatatypeProperty ; rdfs:comment "Data source reference" ; rdfs:range xsd:anyURI .
+:lastUpdated a owl:DatatypeProperty ; rdfs:comment "Timestamp of last data refresh" ; rdfs:range xsd:dateTime .

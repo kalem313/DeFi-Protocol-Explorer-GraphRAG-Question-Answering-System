@@ -1,0 +1,13 @@
+id,text,gold_terms
+1,"We integrated Uniswap V3 into our pipeline and measured swaps per second; audits were provided by OpenZeppelin.","[{""term"": ""Uniswap"", ""class"": ""Protocol""}, {""term"": ""OpenZeppelin"", ""class"": ""Organization""}]"
+2,"Aave reported an increase in TVL last quarter. The security review was done by CertiK.","[{""term"": ""Aave"", ""class"": ""Protocol""}, {""term"": ""CertiK"", ""class"": ""Organization""}]"
+3,"Lido's staking contracts run on Ethereum and collaborations include partnerships with Figment.","[{""term"": ""Lido"", ""class"": ""Protocol""}, {""term"": ""Figment"", ""class"": ""Organization""}]"
+4,"SushiSwap announced a grant from a16z to expand liquidity incentives.","[{""term"": ""SushiSwap"", ""class"": ""Protocol""}, {""term"": ""a16z"", ""class"": ""Organization""}]"
+5,"Curve Finance focuses on stablecoin swaps; security audits by Trail of Bits increased confidence.","[{""term"": ""Curve Finance"", ""class"": ""Protocol""}, {""term"": ""Trail of Bits"", ""class"": ""Organization""}]"
+6,"Balancer Labs introduced a new AMM curve; independent auditors included PeckShield.","[{""term"": ""Balancer Labs"", ""class"": ""Protocol""}, {""term"": ""PeckShield"", ""class"": ""Organization""}]"
+7,"We indexed data from MakerDAO governance proposals and referenced audits from Quantstamp.","[{""term"": ""MakerDAO"", ""class"": ""Protocol""}, {""term"": ""Quantstamp"", ""class"": ""Organization""}]"
+8,"1inch aggregates liquidity across protocols like Uniswap and SushiSwap; code review by OpenZeppelin was cited.","[{""term"": ""1inch"", ""class"": ""Protocol""}, {""term"": ""Uniswap"", ""class"": ""Protocol""}, {""term"": ""SushiSwap"", ""class"": ""Protocol""}, {""term"": ""OpenZeppelin"", ""class"": ""Organization""}]"
+9,"Compound governance proposals were discussed at a conference sponsored by Consensys.","[{""term"": ""Compound"", ""class"": ""Protocol""}, {""term"": ""Consensys"", ""class"": ""Organization""}]"
+10,"PancakeSwap runs on BSC and was audited by CertiK earlier this year.","[{""term"": ""PancakeSwap"", ""class"": ""Protocol""}, {""term"": ""CertiK"", ""class"": ""Organization""}]"
+11,"OpenZeppelin and Trail of Bits often publish findings about vulnerabilities in DeFi protocols.","[{""term"": ""OpenZeppelin"", ""class"": ""Organization""}, {""term"": ""Trail of Bits"", ""class"": ""Organization""}]"
+12,"DeFi protocols such as Aave, Compound, and MakerDAO rely on audits by Quantstamp and PeckShield.","[{""term"": ""Aave"", ""class"": ""Protocol""}, {""term"": ""Compound"", ""class"": ""Protocol""}, {""term"": ""MakerDAO"", ""class"": ""Protocol""}, {""term"": ""Quantstamp"", ""class"": ""Organization""}, {""term"": ""PeckShield"", ""class"": ""Organization""}]"

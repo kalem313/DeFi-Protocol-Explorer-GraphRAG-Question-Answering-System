@@ -1,0 +1,62 @@
+@prefix : <http://example.org/defi#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+### Blockchains
+:Ethereum a :Blockchain ; rdfs:label "Ethereum" .
+:Arbitrum a :Blockchain ; rdfs:label "Arbitrum" .
+:Polygon a :Blockchain ; rdfs:label "Polygon" .
+
+### Tokens
+:ETH a :Token ; rdfs:label "ETH" .
+:USDC a :Token ; rdfs:label "USDC" .
+:stETH a :Token ; rdfs:label "stETH" .
+
+### Organizations
+:OpenZeppelin a :Organization ; rdfs:label "OpenZeppelin (Audit Firm)" .
+:TrailOfBits a :Organization ; rdfs:label "Trail of Bits (Audit Firm)" .
+:VCAlpha a :Organization ; rdfs:label "VC Alpha" .
+:ChainlinkOrg a :Organization ; rdfs:label "Chainlink" .
+
+### People
+:FounderAlice a :Person ; rdfs:label "Alice Founder" .
+
+### Protocols (examples)
+:Uniswap a :Protocol ; rdfs:label "Uniswap" ;
+  :deployedOn :Ethereum ;
+  :deployedOn :Arbitrum ;
+  :belongsToCategory :DEX ;
+  :supportsToken :ETH , :USDC ;
+  :auditedBy :OpenZeppelin ;
+  :launchDate "2018-11-02"^^xsd:date ;
+  :tvlUSD "5200000000"^^xsd:decimal ;
+  :sourceURL <https://defillama.org/uniswap> .
+
+:Aave a :Protocol ; rdfs:label "Aave" ;
+  :deployedOn :Ethereum ;
+  :deployedOn :Polygon ;
+  :belongsToCategory :Lending ;
+  :supportsToken :ETH , :USDC ;
+  :auditedBy :TrailOfBits ;
+  :launchDate "2017-11-01"^^xsd:date ;
+  :tvlUSD "2900000000"^^xsd:decimal ;
+  :sourceURL <https://defillama.org/aave> .
+
+:Lido a :Protocol ; rdfs:label "Lido" ;
+  :deployedOn :Ethereum ;
+  :belongsToCategory :LiquidStaking ;
+  :supportsToken :stETH , :ETH ;
+  :auditedBy :OpenZeppelin ;
+  :launchDate "2020-12-01"^^xsd:date ;
+  :tvlUSD "15000000000"^^xsd:decimal ;
+  :backedBy :VCAlpha ;
+  :sourceURL <https://defillama.org/lido> .
+
+:SushiSwap a :Protocol ; rdfs:label "SushiSwap" ;
+  :deployedOn :Ethereum ;
+  :deployedOn :Polygon ;
+  :belongsToCategory :DEX ;
+  :supportsToken :ETH , :USDC ;
+  :auditedBy :OpenZeppelin ;
+  :launchDate "2020-08-28"^^xsd:date ;
+  :tvlUSD "700000000"^^xsd:decimal .
